@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://db.onlinewebfonts.com/c/01173b246d9d9ea808ea75a26b3b61bb?family=CircularSpotifyTxT-Black"
+        rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "CircularSpotifyTxT-Black";
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            background-color: black;
+
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        aside img {
+            filter: invert(1);
+            height: 40px
+        }
+
+
+        .first_bar {
+            height: 18vh;
+            width: 23vw;
+            background-color: #121212;
+            border-radius: 10px;
+            color: white;
+            padding: 18px;
+        }
+
+        .logo_cross {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cross {
+            display: none;
+        }
+
+        .bar_ele {
+            font-size: 25px;
+            font-weight: bolder;
+
+        }
+
+        .same_first img {
+            height: 30px;
+        }
+
+        .same_first {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px;
+            margin: 8px;
+        }
+
+        .second_bar {
+            background-color: #121212;
+            height: 72.5vh;
+            width: 25.3vw;
+            border-radius: 10px;
+            color: white
+        }
+
+        .second_bar article {
+            height: 25vh;
+            width: 24vw;
+            overflow: hidden auto;
+        }
+
+        .y_l_a {
+            margin: 12px;
+            padding: 20px;
+            height: 13vh;
+            width: 20vw;
+            background-color: #272727;
+            border-radius: 20px;
+            font-size: 15px;
+
+        }
+
+        .liberary {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        aside footer {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: absolute;
+            bottom: 20px;
+            width: 350px;
+
+        }
+
+        .foot {
+            text-decoration: none;
+            color: white;
+        }
+
+
+
+        main {
+
+            height: 90vh;
+            width: 72.7vw;
+            border-radius: 10px;
+            overflow: auto;
+
+        }
+
+        .signupbutt {
+            background-color: #121212;
+            color: white;
+            height: 30px;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .signupbutt:hover {
+            font-weight: bolder;
+            padding: 8px;
+
+        }
+
+        .loginbutt {
+            height: 40px;
+            padding: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 80px;
+        }
+
+        .loginbutt:hover {
+            font-weight: bolder;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-size: larger;
+        }
+
+
+        .main_try {
+            width: 72.7vw;
+            height: 96.6vh;
+            background-color: #121212;
+            border-radius: 20px;
+
+        }
+
+        .nav {
+            height: 5vh;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .arrow_left,
+        .arrow_right {
+            filter: invert(1);
+            height: 30px;
+            padding: 5px;
+
+        }
+
+        .hamburger {
+            display: none;
+
+        }
+
+        .card {
+            margin: 18px;
+            height: 240px;
+            width: 205px;
+            background-color: #272727;
+            text-align: start;
+            color: white;
+            border-radius: 10px;
+
+        }
+
+        .card h2 {
+            font-size: larger;
+            font-weight: 600;
+        }
+
+        .card img {
+            height: 180px;
+            object-fit: contain;
+            border-radius: 120px;
+
+        }
+
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            overflow: auto
+        }
+
+        .foot {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        main footer {
+            display: flex;
+            height: 30vh;
+            gap: 8vw;
+            font-size: larger;
+            color: white;
+            text-decoration: none;
+            justify-content: center;
+        }
+
+        .playbar {
+            width: 72.7vw;
+            height: 7vh;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            position: fixed;
+            bottom: 3vh;
+            border-radius: 20px;
+            gap: 6px;
+
+        }
+
+        .playbutton {
+            width: 70vw;
+            display: flex;
+            align-self: center;
+            justify-content: space-between;
+        }
+
+        .playbutton div {
+            color: white;
+        }
+
+        .playbutton img {
+            cursor: pointer;
+            filter: invert(1);
+        }
+
+        .seekbar {
+
+            border: 2px solid aqua;
+            height: 2px;
+            width: 71vw;
+            border-radius: 20px;
+            align-self: center;
+            cursor: pointer;
+        }
+
+        .circle {
+            background-color: bisque;
+            height: 20px;
+            width: 20px;
+            border-radius: 60px;
+            position: absolute;
+            top: 28px;
+            left: 0%;
+            transition: left 0.5s;
+        }
+
+        .songs_list {
+            overflow: auto;
+            height: 45vh
+        }
+
+        .songs_list li {
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid white;
+
+
+        }
+
+        .songs_list li div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .play_plyst {
+            cursor: pointer;
+        }
+
+
+        @media (max-width:500px) {
+            aside {
+                background-color: #121212;
+                position: absolute;
+                height: 100vh;
+                left: -100%;
+                width: 80vw;
+                z-index: 2;
+                padding: 0;
+
+            }
+
+            .first_bar,
+            .second_bar {
+                width: 80vw;
+                margin: 0;
+                padding: 0;
+            }
+
+            .second_bar footer {
+                width: 48vw;
+                height: 20vh;
+            }
+            .nav img{
+                width:15px;
+
+            }
+            .songs_list {
+                height: 35vh;
+            }
+
+            .songs_list li {
+                font-size: small;
+            }
+
+            .song_list li img {
+                height: 20px;
+            }
+
+            .head {
+                margin: 0;
+            }
+
+            .main_try,
+            main,
+            .playbar {
+                width: 100vw;
+            }
+
+
+
+            .arrow {
+                display: flex;
+                align-items: center;
+            }
+
+            .hamburger {
+                display: inline;
+                filter: invert(1);
+                margin: 5px;
+            }
+
+            .cross {
+                display: inline;
+            }
+
+            .hero {
+                justify-content: center;
+            }
+
+            .seekbar {
+                bottom: 0;
+                width: 94%;
+            }
+
+            .playbar {
+                width: 100vw;
+                bottom: 4vh;
+                height: 90px;
+                font-size: 13px;
+            }
+
+            .playbutton {
+                width: 94vw;
+                height: 60px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .song_update {
+                width: 172px;
+            }
+
+            .circle {
+                top: 56px;
+                left: 10px;
+            }
+
+            .card {
+                height: 50vh;
+                width: 89vw;
+                text-align: center;
+                font-size: 21px;
+            }
+
+            .card img {
+                height: 41vh;
+                width: 85vw;
+                border-radius: 0;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="first_bar">
+                <div class="logo_cross">
+                    <img src="logo.svg">
+                    <img src="cross.svg" class="cross">
+                </div>
+                <div class="home same_first">
+                    <img src="home.svg">
+                    <div class="bar_ele">home</div>
+                </div>
+                <div class="search same_first">
+                    <img src="search.svg">
+                    <div class="bar_ele">search</div>
+                </div>
+            </div>
+            <div class="second_bar">
+                <div class="liberary">
+                    <img src="playlist.svg">
+                    <div>Your Liberary</div>
+                </div>
+
+                <div>
+                    <ul class="songs_list">
+                    </ul>
+                </div>
+
+
+                <footer>
+                    <a href="" class="foot">Legal</a>
+                    <a href="" class="foot">Safety & Privacy Center</a>
+                    <a href="" class="foot">Privacy Policy</a>
+                    <a href="" class="foot">Cookies</a>
+                    <a href="" class="foot">About Ads</a>
+                    <a href="" class="foot">Accessibility</a>
+                    <a href="" class="foot">Cookies</a>
+                </footer>
+            </div>
+        </aside>
+        <div class="main_container">
+            <div class="main_try">
+                <div class="nav">
+                    <div class="arrow">
+                        <img src="hamburger.svg" class="hamburger">
+                        <img src="arrow_left.svg" class="arrow_left">
+                        <img src="arrow_right.svg" class="arrow_right">
+                    </div>
+                    <div class="button">
+                        <button class="signupbutt">sign up</button>
+                        <button class="loginbutt">log in</button>
+                    </div>
+                </div>
+                <div class="playbar">
+                    <div class="playbutton">
+                        <div class="song_update">title name</div>
+                        <div>
+                            <img id="previous" src="previous.svg" alt="">
+                            <img id="play" src="play.svg" alt="">
+                            <img id="next" src="next.svg" alt="">
+                        </div>
+                        <div class="time_update">00/00</div>
+                    </div>
+                    <div class="seekbar">
+                        <div class="circle"></div>
+                    </div>
+
+                </div>
+
+                <main>
+
+                    <section class="sec_a">
+                        <div class="head">
+                            <a href="/">Popular artists</a>
+                            <a href="/">show all</a>
+                        </div>
+                        <div class="hero">
+                            <div class="card">
+                                <img src="https://i.scdn.co/image/ab67616100005174fc7c542c04b5f7dc8f1b1c16">
+                                <h2>Anirudh Ravichander</h2>
+                                <span>Artist</span>
+                            </div>
+                            <div class="card">
+                                <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca">
+                                <h2>Pritam</h2>
+                                <span>Artist</span>
+                            </div>
+                            <div class="card">
+                                <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca">
+                                <h2>Pritam</h2>
+                                <span>Artist</span>
+                            </div>
+                            <div class="card">
+                                <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca">
+                                <h2>Pritam</h2>
+                                <span>Artist</span>
+                            </div>
+                            <div class="card">
+                                <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca">
+                                <h2>Pritam</h2>
+                                <span>Artist</span>
+                            </div>
+                            <div class="card">
+                                <img src="https://i.scdn.co/image/ab67616100005174cb6926f44f620555ba444fca">
+                                <h2>Pritam</h2>
+                                <span>Artist</span>
+                            </div>
+
+
+
+                    </section>
+                    <footer>
+                        <div class="first_foot foot">
+                            <div>Company</div>
+                            <a href="/">About</a>
+                            <a href="">Jobs</a>
+                            <a href="">For the record</a>
+                        </div>
+                        <div class="sec_foot foot">
+                            <div>Communities</div>
+                            <a href="">For Artists</a>
+                            <a href="">Developers</a>
+                            <a href="">Advertising</a>
+                            <a href="">Investors</a>
+                            <a href="">Vendors</a>
+                        </div>
+                        <div class="third_foot foot">
+                            <div>Useful Links</div>
+                            <a href="">Support</a>
+                            <a href="">Free Mobile App</a>
+                        </div>
+                    </footer>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="spotify.js"></script>
+
+</html>
